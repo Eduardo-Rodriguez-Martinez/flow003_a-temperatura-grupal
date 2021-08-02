@@ -1,0 +1,77 @@
+[
+    {
+        "id": "5776030919b6c7ea",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "eb0311b359bc1454",
+        "type": "inject",
+        "z": "5776030919b6c7ea",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"ID\":\"Eduardo Rodriguez Martinez\",\"Temp\":\"20\",\"mnsg\":\"21-P, Semana 1, | (• ◡•)| (❍ᴥ❍ʋ)\"}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "1dfe627007dd574f"
+            ]
+        ]
+    },
+    {
+        "id": "1dfe627007dd574f",
+        "type": "mqtt out",
+        "z": "5776030919b6c7ea",
+        "name": "",
+        "topic": "codigoIoT/SIC/flow3/temp",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd3004a.11da88",
+        "x": 430,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "3.66.119.222",
+        "port": "1883",
+        "clientid": "erm-SIC-29437",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "2",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
