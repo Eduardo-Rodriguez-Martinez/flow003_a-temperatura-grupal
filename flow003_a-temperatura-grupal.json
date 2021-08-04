@@ -7,35 +7,10 @@
         "info": ""
     },
     {
-        "id": "eb0311b359bc1454",
-        "type": "inject",
-        "z": "5776030919b6c7ea",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "",
-        "payload": "{\"ID\":\"Eduardo Rodriguez Martinez\",\"Temp\":\"20\",\"mnsg\":\"21-P, Semana 1, | (• ◡•)| (❍ᴥ❍ʋ)\"}",
-        "payloadType": "json",
-        "x": 210,
-        "y": 280,
-        "wires": [
-            [
-                "1dfe627007dd574f"
-            ]
-        ]
-    },
-    {
         "id": "1dfe627007dd574f",
         "type": "mqtt out",
         "z": "5776030919b6c7ea",
-        "name": "",
+        "name": "MQTT-1",
         "topic": "codigoIoT/SIC/flow3/temp",
         "qos": "2",
         "retain": "",
@@ -45,9 +20,52 @@
         "correl": "",
         "expiry": "",
         "broker": "edd3004a.11da88",
-        "x": 430,
-        "y": 280,
+        "x": 680,
+        "y": 120,
         "wires": []
+    },
+    {
+        "id": "de3e7510416cfbb9",
+        "type": "inject",
+        "z": "5776030919b6c7ea",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "e2e25fd374cad737"
+            ]
+        ]
+    },
+    {
+        "id": "e2e25fd374cad737",
+        "type": "function",
+        "z": "5776030919b6c7ea",
+        "name": "",
+        "func": "var mydate = new Date(msg.payload);\nvar mytemp = Math.floor((Math.random() * 20) + 10);\nmsg.payload = '{\"ID\":\"Eduardo Rodriguez Martinez\",\"Temp\":\"'+mytemp.toString()+'\",\"mnsg\":\"'+mydate.toString()+'\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [
+                "1dfe627007dd574f"
+            ]
+        ]
     },
     {
         "id": "edd3004a.11da88",
